@@ -11,6 +11,27 @@ use \Bitrix\Main\Page\Asset;
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="<?php echo SITE_TEMPLATE_PATH; ?>/assets/img/favicon.png">
+	<!-- Yandex.Metrika counter -->
+	<script type="text/javascript">
+		(function(m,e,t,r,i,k,a){
+			m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+			m[i].l=1*new Date();
+			for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+			k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+		})(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106589112', 'ym');
+	
+		ym(106589112, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+	</script>
+	<!-- Varioqub experiments -->
+	<script type="text/javascript">
+		(function(e, x, pe, r, i, me, nt){
+		e[i]=e[i]||function(){(e[i].a=e[i].a||[]).push(arguments)},
+		me=x.createElement(pe),me.async=1,me.src=r,nt=x.getElementsByTagName(pe)[0],me.addEventListener('error',function(){function cb(t){t=t[t.length-1],'function'==typeof t&&t({flags:{}})};Array.isArray(e[i].a)&&e[i].a.forEach(cb);e[i]=function(){cb(arguments)}}),nt.parentNode.insertBefore(me,nt)})
+		(window, document, 'script', 'https://abt.s3.yandex.net/expjs/latest/exp.js', 'ymab');
+		ymab('metrika.106589112', 'init'/*, {clientFeatures}, {callback}*/);
+	</script>
+	<noscript><div><img src="https://mc.yandex.ru/watch/106589112" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
     <?php
         Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/bootstrap.min.css');
         Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . '/assets/css/owl.carousel.css');
@@ -70,7 +91,7 @@ use \Bitrix\Main\Page\Asset;
 </div>
 
 <!-- Шапка сайта (меню) -->
-<header id="sticky-header" class="header-area header-wrapper white-bg">
+<header id="sticky-header" class="header-area header-wrapper <?= ($APPLICATION->GetCurDir() == '/') ? 'transparent-header' : 'white-bg'  ?>">
     <!-- Меню (для десктопа) -->
     <div class="header-middle-area full-width">
         <div class="container">
@@ -140,7 +161,7 @@ use \Bitrix\Main\Page\Asset;
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="mobile-menu">
+                    <div class="mobile-menu" onclick="ym(106589112,'reachGoal','form-sent'); return true;">
                         <nav id="dropdown">
                             <ul>
                                 <li>
@@ -177,27 +198,4 @@ use \Bitrix\Main\Page\Asset;
     </div>
 </header>
 
-<!-- Хлебные крошки (навигация) -->
-<div class="breadcrumb-area brand-bg ptb-100">
-    <div class="container width-100">
-        <div class="row z-index">
-            <div class="col-md-7 col-sm-6">
-                <div class="breadcrumb-title">
-                    <h2 class="white-text"><?php $APPLICATION->ShowTitle(false); ?></h2>
-                </div>
-            </div>
-            <div class="col-md-5 col-sm-6">
-                <div class="breadcrumb-menu">
-                    <ol class="breadcrumb text-right">
-                        <li>
-                            <a href="index.html">Главная</a>
-                        </li>
-                        <li>
-                            <a href="#">О нас</a>
-                        </li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
