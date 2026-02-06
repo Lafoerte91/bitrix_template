@@ -27,15 +27,38 @@ $this->setFrameMode(true);
         </div>
         <div class="row">
 
-            <div class="col-lg-12">
-                <div class="portfolio-menu brand-filter text-center mb-70">
-                    <div class="filter" data-filter="all">Все</div>
-                    <div class="filter" data-filter=".landing">Лендинги</div>
-                    <div class="filter" data-filter=".internet_shop">Интренет магазины</div>
-                    <div class="filter" data-filter=".promo">Промо сайты</div>
-                    <div class="filter" data-filter=".corporative_site">Корпоративные порталы</div>
-                </div>
-            </div>
+<?$APPLICATION->IncludeComponent("bitrix:catalog.section.list", "PortfolioSectionsList", Array(
+	"ADDITIONAL_COUNT_ELEMENTS_FILTER" => "additionalCountFilter",	// Дополнительный фильтр для подсчета количества элементов в разделе
+	"ADD_SECTIONS_CHAIN" => "N",	// Включать раздел в цепочку навигации
+	"CACHE_FILTER" => "N",	// Кешировать при установленном фильтре
+	"CACHE_GROUPS" => "N",	// Учитывать права доступа
+	"CACHE_TIME" => "36000000",	// Время кеширования (сек.)
+	"CACHE_TYPE" => "N",	// Тип кеширования
+	"COUNT_ELEMENTS" => "N",	// Показывать количество элементов в разделе
+	"COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",	// Показывать количество
+	"FILTER_NAME" => "sectionsFilter",	// Имя массива со значениями фильтра разделов
+	"HIDE_SECTIONS_WITH_ZERO_COUNT_ELEMENTS" => "N",	// Скрывать разделы с нулевым количеством элементов
+	"IBLOCK_ID" => $arParams["IBLOCK_ID"],	// Инфоблок
+	"IBLOCK_TYPE" => $arParams["IBLOCK_TYPE"],	// Тип инфоблока
+	"SECTION_CODE" => "",	// Код раздела
+	"SECTION_FIELDS" => array(	// Поля разделов
+	0 => "CODE",
+	1 => "NAME",
+	2 => "",
+	),
+	"SECTION_ID" => "",	// ID раздела
+	"SECTION_URL" => "",	// URL, ведущий на страницу с содержимым раздела
+	"SECTION_USER_FIELDS" => array(	// Свойства разделов
+	0 => "",
+	1 => "",
+	),
+	"SHOW_PARENT_NAME" => "Y",	// Показывать название раздела
+	"TOP_DEPTH" => "1",	// Максимальная отображаемая глубина разделов
+	"VIEW_MODE" => "LINE",	// Вид списка подразделов
+	"COMPONENT_TEMPLATE" => ".default"
+	),
+	false
+);?>
 
 <?php $APPLICATION->IncludeComponent(
 	"bitrix:news.list",
